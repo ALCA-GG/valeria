@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=PlayFair+Display:ital,wght@0,400;0,700;1,400;1,700&Family=Dancing+Script:wght@400;700&Family=Lato:wght@300;400&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --rose-deep: #8b1a3a;
+  --rose-mid: #c2185b;
+  --rose-light: #f48fb1;
+  --gold: #d4af37;
+  --gold-light: #f5e6a3;
+  --dark: #0d0008;
+  --dark-2: #1a000d;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--dark);
+  color: #fdf0f5;
+  font-family: "Lato", sans-serif;
+  overflow-x: hidden;
+}
+
+.particles {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  animation: particleFloat linear infinite;
+  z-index: 0;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100px) rotate(720deg);
+    opacity: 0;
+  }
+}
