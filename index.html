@@ -1,36 +1,396 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Para [Nombre]</title>
-    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"/>
-    <link rel="stylesheet" href="index.css" />
+    <title>Para Ti ❤️</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>" />
+    <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
-    <header>
-      <h1>Para alguien especial</h1>
-      <p>Este es un mensaje especial para ti.</p>
-    </header>
-    <main>
-      <section id="portada">
-        <h2>Hola, Valeria ❤️ Te amo</h2>
-        <p>Espero que disfrutes este mensaje especial.</p>
-      </section>
-      <section id="razon">
-        <h2>Razones</h2>
-        <ul>
-          <li>Eres increíblemente amable.</li>
-          <li>Siempre sabes cómo hacerme sonreír.</li>
-          <li>Tu apoyo significa el mundo para mí.</li>
-          <li>Me inspiras a ser una mejor persona.</li>
-          <li>Compartimos momentos inolvidables juntos.</li>
-        </ul>
-      </section>
-    </main>
-    <footer>
-      <h2>Gracias por ser tú</h2>
-      <p>Estoy agradecido/a de tenerte en mi vida. Eres una persona maravillosa y te aprecio mucho.</p>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar" style="width:0%"></div>
+
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 px-8 py-4 flex items-center justify-between"
+         style="background: linear-gradient(to bottom, rgba(13,0,8,0.9), transparent); backdrop-filter: blur(8px);">
+      <div class="font-script text-xl text-gold">❤ Para Ti</div>
+      <ul class="hidden md:flex gap-8 font-body text-sm tracking-widest uppercase text-rose-200">
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#razones">Razones</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#momentos">Momentos</a></li>
+        <li><a href="#carta">Carta</a></li>
+        <li><a href="#promesas">Promesas</a></li>
+      </ul>
+      <button id="menuBtn" class="md:hidden text-rose-300 text-2xl">☰</button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-40 hidden flex-col items-center justify-center gap-8"
+         style="background: rgba(13,0,8,0.97);">
+      <button id="closeMenu" class="absolute top-6 right-6 text-rose-300 text-3xl">✕</button>
+      <a href="#hero" class="nav-mobile font-script text-3xl text-rose-200">Inicio</a>
+      <a href="#razones" class="nav-mobile font-script text-3xl text-rose-200">Razones</a>
+      <a href="#galeria" class="nav-mobile font-script text-3xl text-rose-200">Galería</a>
+      <a href="#momentos" class="nav-mobile font-script text-3xl text-rose-200">Momentos</a>
+      <a href="#carta" class="nav-mobile font-script text-3xl text-rose-200">Carta</a>
+      <a href="#promesas" class="nav-mobile font-script text-3xl text-rose-200">Promesas</a>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 1: HERO -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center text-center px-6">
+      <div class="hero-bg"></div>
+
+      <!-- Decorative rings -->
+      <div class="absolute w-96 h-96 rounded-full border border-rose-900 opacity-20 animate-spin-slow"></div>
+      <div class="absolute w-72 h-72 rounded-full border border-yellow-800 opacity-15" style="animation: spin 30s linear infinite reverse;"></div>
+
+      <div class="relative z-10 max-w-3xl mx-auto">
+        <!-- Subtitle -->
+        <p class="font-body text-xs tracking-[0.5em] uppercase text-rose-400 mb-6 reveal" style="transition-delay: 0.2s">
+          ✦ Un mensaje desde el corazón ✦
+        </p>
+
+        <!-- Main title -->
+        <h1 class="font-display text-6xl md:text-8xl font-bold leading-none mb-4 reveal" style="transition-delay: 0.4s">
+          <span class="italic text-rose-200">Para</span>
+          <br>
+          <span class="text-gold" style="font-size: 1.1em; text-shadow: 0 0 40px rgba(212,175,55,0.4);">[Tu Nombre]</span>
+        </h1>
+
+        <div class="ornamental-divider reveal" style="transition-delay: 0.6s">
+          <span class="text-gold text-lg">✦</span>
+        </div>
+
+        <p class="font-script text-2xl md:text-3xl text-rose-200 mt-4 mb-10 reveal" style="transition-delay: 0.7s">
+          "Eres la razón de mi sonrisa más genuina"
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-center reveal" style="transition-delay: 0.9s">
+          <a href="#razones"
+             class="px-8 py-3 rounded-full font-body text-sm tracking-widest uppercase transition-all duration-300"
+             style="background: linear-gradient(135deg, #8b1a3a, #c2185b); border: 1px solid rgba(212,175,55,0.3); box-shadow: 0 0 30px rgba(194,24,91,0.4);"
+             onmouseover="this.style.boxShadow='0 0 50px rgba(194,24,91,0.8)'"
+             onmouseout="this.style.boxShadow='0 0 30px rgba(194,24,91,0.4)'"
+          >Descubrir ↓</a>
+          <a href="#galeria"
+             class="px-8 py-3 rounded-full font-body text-sm tracking-widest uppercase text-gold transition-all duration-300"
+             style="border: 1px solid rgba(212,175,55,0.3);"
+             onmouseover="this.style.borderColor='rgba(212,175,55,0.9)'"
+             onmouseout="this.style.borderColor='rgba(212,175,55,0.3)'"
+          >Ver Galería</a>
+        </div>
+      </div>
+
+      <!-- Big heart -->
+      <div class="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-5xl heart-beat z-10 cursor-pointer" id="heroHeart">❤️</div>
+      <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-xs font-body tracking-widest uppercase text-rose-600 z-10">
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 2: RAZONES -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section id="razones" class="relative py-32 px-6 section-dark">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-20 reveal">
+          <p class="font-body text-xs tracking-[0.5em] uppercase text-rose-500 mb-3">Con el corazón</p>
+          <h2 class="font-display text-5xl md:text-6xl text-rose-100">
+            Razones por las que<br><span class="italic text-gold">te quiero</span>
+          </h2>
+          <div class="ornamental-divider mt-6"><span class="text-gold">♥</span></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Cards -->
+          <div class="reason-card rounded-2xl p-8 reveal" style="transition-delay: 0.1s">
+            <div class="text-4xl mb-4">✨</div>
+            <h3 class="font-display text-xl text-gold mb-3">Tu luz</h3>
+            <p class="font-body text-rose-200 leading-relaxed text-sm">Iluminas cada habitación en la que entras. Tu presencia cambia el ambiente de cualquier lugar.</p>
+          </div>
+          <div class="reason-card rounded-2xl p-8 reveal" style="transition-delay: 0.2s">
+            <div class="text-4xl mb-4">🌸</div>
+            <h3 class="font-display text-xl text-gold mb-3">Tu amabilidad</h3>
+            <p class="font-body text-rose-200 leading-relaxed text-sm">Tienes una bondad natural y genuina que me recuerda que hay belleza real en este mundo.</p>
+          </div>
+          <div class="reason-card rounded-2xl p-8 reveal" style="transition-delay: 0.3s">
+            <div class="text-4xl mb-4">🎶</div>
+            <h3 class="font-display text-xl text-gold mb-3">Tu risa</h3>
+            <p class="font-body text-rose-200 leading-relaxed text-sm">Es la melodía favorita que llevo guardada en el corazón. Escucharla es el mejor regalo del día.</p>
+          </div>
+          <div class="reason-card rounded-2xl p-8 reveal" style="transition-delay: 0.4s">
+            <div class="text-4xl mb-4">🌙</div>
+            <h3 class="font-display text-xl text-gold mb-3">Tu profundidad</h3>
+            <p class="font-body text-rose-200 leading-relaxed text-sm">Tienes una forma de ver el mundo que me hace pensar diferente, más profundo, más humano.</p>
+          </div>
+          <div class="reason-card rounded-2xl p-8 reveal" style="transition-delay: 0.5s">
+            <div class="text-4xl mb-4">🌺</div>
+            <h3 class="font-display text-xl text-gold mb-3">Tu apoyo</h3>
+            <p class="font-body text-rose-200 leading-relaxed text-sm">En los momentos difíciles, has sido mi ancla. Saber que estás ahí lo cambia todo.</p>
+          </div>
+          <div class="reason-card rounded-2xl p-8 reveal" style="transition-delay: 0.6s">
+            <div class="text-4xl mb-4">⭐</div>
+            <h3 class="font-display text-xl text-gold mb-3">Tu esencia</h3>
+            <p class="font-body text-rose-200 leading-relaxed text-sm">Eres única, auténtica e irremplazable. No hay nadie en el mundo como tú, y eso es un milagro.</p>
+          </div>
+        </div>
+
+        <!-- Extra large reason -->
+        <div class="mt-10 reason-card rounded-2xl p-10 text-center glow-border reveal" style="transition-delay: 0.7s">
+          <div class="text-5xl mb-4">💫</div>
+          <h3 class="font-display text-3xl text-gold mb-4">Y sobre todo...</h3>
+          <p class="font-script text-2xl text-rose-200 leading-relaxed max-w-2xl mx-auto">
+            "Porque simplemente siendo tú, has hecho de mi vida algo más hermoso, más rico, más completo."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 3: GALERÍA -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section id="galeria" class="relative py-32 px-6" style="background: #0a0005;">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-20 reveal">
+          <p class="font-body text-xs tracking-[0.5em] uppercase text-rose-500 mb-3">Nuestros recuerdos</p>
+          <h2 class="font-display text-5xl md:text-6xl text-rose-100">
+            La <span class="italic text-gold">Galería</span><br>de tu recuerdo
+          </h2>
+          <div class="ornamental-divider mt-6"><span class="text-gold">♥</span></div>
+          <p class="font-body text-rose-400 mt-4 text-sm tracking-wide">Reemplaza las imágenes con tus fotos favoritas ↓</p>
+        </div>
+
+        <!-- Gallery Filter -->
+        <div class="flex gap-3 justify-center mb-10 flex-wrap reveal">
+          <button class="gallery-filter-btn active px-5 py-2 rounded-full text-sm font-body tracking-wide transition-all duration-300" data-filter="all">Todas</button>
+          <button class="gallery-filter-btn px-5 py-2 rounded-full text-sm font-body tracking-wide transition-all duration-300" data-filter="juntos">Juntos</button>
+          <button class="gallery-filter-btn px-5 py-2 rounded-full text-sm font-body tracking-wide transition-all duration-300" data-filter="especial">Especiales</button>
+          <button class="gallery-filter-btn px-5 py-2 rounded-full text-sm font-body tracking-wide transition-all duration-300" data-filter="viajes">Viajes</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="galleryGrid">
+          <div class="gallery-item h-48 md:h-64 reveal" data-category="juntos" data-caption="Un momento especial juntos" style="transition-delay:0.1s">
+            <img src="https://picsum.photos/seed/love1/400/400" alt="Recuerdo 1" loading="lazy">
+            <div class="gallery-caption absolute bottom-0 left-0 right-0 p-3 z-2 text-sm font-body text-white opacity-0 transition-opacity duration-300">Un momento especial</div>
+          </div>
+          <div class="gallery-item h-48 md:h-64 md:col-span-2 reveal" data-category="especial" data-caption="Ese día tan especial" style="transition-delay:0.15s">
+            <img src="https://picsum.photos/seed/love2/800/400" alt="Recuerdo 2" loading="lazy">
+          </div>
+          <div class="gallery-item h-48 md:h-64 reveal" data-category="viajes" data-caption="Nuestro viaje" style="transition-delay:0.2s">
+            <img src="https://picsum.photos/seed/love3/400/400" alt="Recuerdo 3" loading="lazy">
+          </div>
+          <div class="gallery-item h-48 md:h-64 md:row-span-2 reveal" data-category="juntos" data-caption="Siempre juntos" style="transition-delay:0.25s" style="height: auto;">
+            <img src="https://picsum.photos/seed/love4/400/600" alt="Recuerdo 4" loading="lazy" style="height:100%; min-height: 250px;">
+          </div>
+          <div class="gallery-item h-48 md:h-64 reveal" data-category="especial" data-caption="Un día mágico" style="transition-delay:0.3s">
+            <img src="https://picsum.photos/seed/love5/400/400" alt="Recuerdo 5" loading="lazy">
+          </div>
+          <div class="gallery-item h-48 md:h-64 reveal" data-category="viajes" data-caption="Explorando juntos" style="transition-delay:0.35s">
+            <img src="https://picsum.photos/seed/love6/400/400" alt="Recuerdo 6" loading="lazy">
+          </div>
+          <div class="gallery-item h-48 md:h-64 reveal" data-category="juntos" data-caption="Risas que recuerdo" style="transition-delay:0.4s">
+            <img src="https://picsum.photos/seed/love7/400/400" alt="Recuerdo 7" loading="lazy">
+          </div>
+          <div class="gallery-item h-48 md:h-64 reveal" data-category="especial" data-caption="Algo hermoso" style="transition-delay:0.45s">
+            <img src="https://picsum.photos/seed/love8/400/400" alt="Recuerdo 8" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" role="dialog" aria-modal="true">
+      <button id="lightboxPrev" class="absolute left-4 top-1/2 -translate-y-1/2 text-4xl text-white opacity-70 hover:opacity-100 transition-opacity z-10">‹</button>
+      <div class="flex flex-col items-center gap-4">
+        <img id="lightboxImg" src="" alt="">
+        <p id="lightboxCaption" class="font-script text-xl text-rose-200 text-center px-4"></p>
+      </div>
+      <button id="lightboxNext" class="absolute right-4 top-1/2 -translate-y-1/2 text-4xl text-white opacity-70 hover:opacity-100 transition-opacity z-10">›</button>
+      <button id="lightboxClose" class="absolute top-4 right-4 text-2xl text-white opacity-70 hover:opacity-100 transition-opacity z-10">✕</button>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 4: MOMENTOS / TIMELINE -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section id="momentos" class="relative py-32 px-6 section-dark">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-20 reveal">
+          <p class="font-body text-xs tracking-[0.5em] uppercase text-rose-500 mb-3">Nuestra historia</p>
+          <h2 class="font-display text-5xl md:text-6xl text-rose-100">
+            Momentos <span class="italic text-gold">Inolvidables</span>
+          </h2>
+          <div class="ornamental-divider mt-6"><span class="text-gold">♥</span></div>
+        </div>
+
+        <div class="space-y-10 pl-6">
+          <div class="timeline-item reveal" style="transition-delay:0.1s">
+            <p class="font-body text-xs tracking-widest uppercase text-gold mb-1">El primer momento</p>
+            <h3 class="font-display text-2xl text-rose-100 mb-2">Cuando nos conocimos</h3>
+            <p class="font-body text-rose-300 leading-relaxed text-sm">Recuerdo perfectamente ese día. El universo conspiraba para que nuestros caminos se cruzaran, y ahora no puedo imaginar que no hubiera pasado.</p>
+          </div>
+          <div class="timeline-item reveal" style="transition-delay:0.2s">
+            <p class="font-body text-xs tracking-widest uppercase text-gold mb-1">La primera vez</p>
+            <h3 class="font-display text-2xl text-rose-100 mb-2">Que me hiciste reír de verdad</h3>
+            <p class="font-body text-rose-300 leading-relaxed text-sm">Fue una de esas risas que salen del alma, esas que no puedes controlar y que te dejan con lágrimas en los ojos. Fue en ese momento que supe que eras especial.</p>
+          </div>
+          <div class="timeline-item reveal" style="transition-delay:0.3s">
+            <p class="font-body text-xs tracking-widest uppercase text-gold mb-1">Un momento difícil</p>
+            <h3 class="font-display text-2xl text-rose-100 mb-2">Y tú estuviste ahí</h3>
+            <p class="font-body text-rose-300 leading-relaxed text-sm">Cuando las cosas se pusieron difíciles, no dudaste ni un segundo. Me recordaste que no estaba solo/a. Ese gesto vale más de lo que puedo expresar.</p>
+          </div>
+          <div class="timeline-item reveal" style="transition-delay:0.4s">
+            <p class="font-body text-xs tracking-widest uppercase text-gold mb-1">Nuestro recuerdo favorito</p>
+            <h3 class="font-display text-2xl text-rose-100 mb-2">Ese día que no olvidaré jamás</h3>
+            <p class="font-body text-rose-300 leading-relaxed text-sm">Hay días que quedan grabados en la memoria para siempre. Este fue uno de ellos. Todo fue perfecto, y todo fue gracias a ti.</p>
+          </div>
+          <div class="timeline-item reveal" style="transition-delay:0.5s">
+            <p class="font-body text-xs tracking-widest uppercase text-gold mb-1">Hoy</p>
+            <h3 class="font-display text-2xl text-rose-100 mb-2">Y todos los días que vendrán</h3>
+            <p class="font-body text-rose-300 leading-relaxed text-sm">Aquí, ahora, en este momento, me alegro enormemente de que seas parte de mi vida. Y espero seguir coleccionando momentos contigo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 5: CARTA ESPECIAL -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section id="carta" class="relative py-32 px-6" style="background: #080004;">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-16 reveal">
+          <p class="font-body text-xs tracking-[0.5em] uppercase text-rose-500 mb-3">Directo al corazón</p>
+          <h2 class="font-display text-5xl md:text-6xl text-rose-100">
+            Una <span class="italic text-gold">carta</span>
+          </h2>
+          <div class="ornamental-divider mt-6"><span class="text-gold">♥</span></div>
+        </div>
+
+        <div class="letter-paper rounded-2xl p-10 reveal" style="transition-delay:0.2s">
+          <p class="font-script text-2xl text-gold mb-8">Querida/o [Tu Nombre],</p>
+
+          <div class="space-y-5 font-body text-rose-200 leading-relaxed">
+            <p>Hay momentos en la vida en que las palabras se quedan cortas. Este es uno de ellos. Pero lo voy a intentar de todas formas, porque creo que mereces saber lo que significa tenerte en mi vida.</p>
+
+            <p>Desde que apareciste, las cosas tienen otro color. Las mañanas son más fáciles de enfrentar. Las noches tienen más historias que contar. Y los días difíciles... bueno, los días difíciles siguen siendo difíciles, pero se sienten más llevaderos sabiendo que existes.</p>
+
+            <p>Quiero que sepas que te veo. No solo lo que muestras al mundo, sino todo lo que hay detrás: la fuerza que cargas, la ternura que a veces escondes, la manera tan única en que ves y sientes las cosas.</p>
+
+            <p>Gracias por dejarme conocerte. Por las conversaciones que se extienden más de lo planeado. Por las risas que no podemos parar. Por los silencios que tampoco necesitan palabras.</p>
+
+            <p>Solo quiero que sepas que eres más de lo que crees. Que vales más de lo que imaginas. Y que yo, desde mi lugar, me alegro mucho de que existir y existir juntos en este tiempo y espacio.</p>
+          </div>
+
+          <div class="mt-10 flex flex-col items-end gap-1">
+            <p class="font-script text-xl text-rose-300">Con todo el cariño,</p>
+            <p class="font-script text-2xl text-gold">[Tu Nombre] 💫</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 6: PROMESAS -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section id="promesas" class="relative py-32 px-6 section-dark">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-20 reveal">
+          <p class="font-body text-xs tracking-[0.5em] uppercase text-rose-500 mb-3">De corazón a corazón</p>
+          <h2 class="font-display text-5xl md:text-6xl text-rose-100">
+            Mis <span class="italic text-gold">Promesas</span>
+          </h2>
+          <div class="ornamental-divider mt-6"><span class="text-gold">♥</span></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="flex gap-5 items-start reveal" style="transition-delay:0.1s">
+            <span class="text-3xl flex-shrink-0 mt-1">🕯️</span>
+            <div>
+              <h3 class="font-display text-xl text-gold mb-2">Siempre estar</h3>
+              <p class="font-body text-rose-300 text-sm leading-relaxed">Prometo que cuando me necesites, estaré. No importa la hora, no importa lo que esté pasando. Siempre.</p>
+            </div>
+          </div>
+          <div class="flex gap-5 items-start reveal" style="transition-delay:0.2s">
+            <span class="text-3xl flex-shrink-0 mt-1">🌿</span>
+            <div>
+              <h3 class="font-display text-xl text-gold mb-2">Respetar tu espacio</h3>
+              <p class="font-body text-rose-300 text-sm leading-relaxed">Prometo respetar tu independencia, tus tiempos y tu forma de ser. No quiero cambiarte, quiero acompañarte.</p>
+            </div>
+          </div>
+          <div class="flex gap-5 items-start reveal" style="transition-delay:0.3s">
+            <span class="text-3xl flex-shrink-0 mt-1">💬</span>
+            <div>
+              <h3 class="font-display text-xl text-gold mb-2">Escucharte siempre</h3>
+              <p class="font-body text-rose-300 text-sm leading-relaxed">Prometo escucharte de verdad, no solo oírte. Con atención, con paciencia, con el corazón abierto.</p>
+            </div>
+          </div>
+          <div class="flex gap-5 items-start reveal" style="transition-delay:0.4s">
+            <span class="text-3xl flex-shrink-0 mt-1">🎯</span>
+            <div>
+              <h3 class="font-display text-xl text-gold mb-2">Apoyar tus sueños</h3>
+              <p class="font-body text-rose-300 text-sm leading-relaxed">Prometo ser tu fan número uno. Creer en ti incluso cuando tú no lo hagas. Celebrar cada uno de tus logros.</p>
+            </div>
+          </div>
+          <div class="flex gap-5 items-start reveal" style="transition-delay:0.5s">
+            <span class="text-3xl flex-shrink-0 mt-1">😂</span>
+            <div>
+              <h3 class="font-display text-xl text-gold mb-2">Hacerte reír</h3>
+              <p class="font-body text-rose-300 text-sm leading-relaxed">Prometo intentar traer alegría a tus días. Porque tu risa es algo que vale la pena buscar todos los días.</p>
+            </div>
+          </div>
+          <div class="flex gap-5 items-start reveal" style="transition-delay:0.6s">
+            <span class="text-3xl flex-shrink-0 mt-1">⏳</span>
+            <div>
+              <h3 class="font-display text-xl text-gold mb-2">Valorar el tiempo</h3>
+              <p class="font-body text-rose-300 text-sm leading-relaxed">Prometo no dar por sentado ningún momento contigo. Cada instante a tu lado es un regalo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 7: CIERRE / FOOTER HERO -->
+    <!-- ══════════════════════════════════════════════ -->
+    <footer class="relative py-40 px-6 text-center overflow-hidden" style="background: radial-gradient(ellipse at center bottom, #3d0020 0%, #0d0008 70%);">
+      <!-- Decorative -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
+        <div class="text-[30rem] leading-none font-display text-rose-500">❤</div>
+      </div>
+
+      <div class="relative z-10 max-w-2xl mx-auto">
+        <p class="font-body text-xs tracking-[0.5em] uppercase text-rose-500 mb-6 reveal">Y para terminar...</p>
+
+        <div class="text-7xl mb-8 heart-beat reveal" style="transition-delay:0.2s">❤️</div>
+
+        <h2 class="font-display text-5xl md:text-7xl text-rose-100 mb-6 reveal" style="transition-delay:0.3s">
+          Te <span class="italic text-gold">quiero</span><br>mucho
+        </h2>
+
+        <p class="font-script text-2xl text-rose-300 mb-10 reveal" style="transition-delay:0.4s">
+          Gracias por ser exactamente quien eres.
+        </p>
+
+        <div class="ornamental-divider reveal" style="transition-delay:0.5s"><span class="text-gold text-xl">✦</span></div>
+
+        <p class="font-body text-rose-600 text-xs tracking-widest mt-10 reveal" style="transition-delay:0.6s">
+          Hecho con ❤️ especialmente para ti
+        </p>
+      </div>
     </footer>
+
+    <!-- Music toggle button -->
+    <button class="music-btn" id="musicBtn" title="Música de fondo">
+      <span id="musicIcon" class="text-xl">🎵</span>
+    </button>
+
+    <script type="module" src="./src/main.js"></script>
   </body>
 </html>
