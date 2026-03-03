@@ -207,9 +207,8 @@ musicBtn.addEventListener('click', () => {
     ? 'linear-gradient(135deg, #d4af37, #c2185b)'
     : 'linear-gradient(135deg, #8b1a3a, #c2185b)'
 
-  // Note: To add real music, create an <audio> element and link an mp3:
-  // const audio = new Audio('/path/to/song.mp3')
-  // musicPlaying ? audio.play() : audio.pause()
+  const audio = new Audio('/music/example.mp3')
+  musicPlaying ? audio.play() : audio.pause()
 })
 
 // ═══════════════════════════════════════
